@@ -1,9 +1,4 @@
-# s23wb12chelikani
+# s23db12chelikani
 good commit
 <br>
-https://s23wb12chelikani.onrender.com <br>
-
-Class:biscuit <br>
-
-Attributes : Name, FlavourType,Price.
-
+https://s23db12chelikani.onrender.com <br>
