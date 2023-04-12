@@ -1,10 +1,11 @@
 var express = require('express');
+const biscuit_controlers= require('../controllers/biscuit');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('biscuit', { title: 'Search Results biscuit' });
-});
-
+/* GET costumes */
+router.get('/',biscuit_controlers.biscuit_view_all_Page );
 module.exports = router;
+
+
+
 
