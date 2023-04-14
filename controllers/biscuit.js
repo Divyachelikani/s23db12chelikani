@@ -42,8 +42,24 @@ exports.biscuit_delete = function(req, res) {
 res.send('NOT IMPLEMENTED: biscuit delete DELETE ' + req.params.id);
 };
 // Handle Costume update form on PUT.
-exports.biscuit_update_put = function(req, res) {
-res.send('NOT IMPLEMENTED: biscuit update PUT' + req.params.id);
+exports.biscuit_update_put = async function(req, res) {
+ console.log(`update on id ${req.params.id} with body
+${JSON.stringify(req.body)}`)
+ try {
+ let toUpdate = await biscuit.findById( req.params.id)
+ // Do updates of properties
+ if(req.body.Name)
+ toUpdate.Name = req.body.Name;
+ if(req.body.FlavourType) toUpdate.FlavourType = req.body.FlavourType;
+ if(req.body.Price) toUpdate.Price = req.body.Price;
+ let result = await toUpdate.save();
+ console.log("Sucess " + result)
+ res.send(result)
+ } catch (err) {
+ res.status(500)
+ res.send(`{"error": ${err}: Update for id ${req.params.id}
+failed`);
+ }
 };
 // VIEWS
 // Handle a show all view
@@ -57,3 +73,15 @@ res.status(500);
 res.send(`{"error": ${err}}`);
 }
 };
+
+// for a specific Costume.
+exports.biscuit_detail = async function(req, res) {
+    console.log("detail" + req.params.id)
+    try {
+    result = await biscuit.findById( req.params.id)
+    res.send(result)
+    } catch (error) {
+    res.status(500)
+    res.send(`{"error": document for id ${req.params.id} not found`);
+    }
+   };

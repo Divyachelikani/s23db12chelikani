@@ -17,4 +17,6 @@ router.put('/biscuit/:id', biscuit_controller.biscuit_update_put);
 router.get('/biscuit/:id', biscuit_controller.biscuit_detail);
 // GET request for list of all Costume items.
 router.get('/biscuit', biscuit_controller.biscuit_list);
+// GET request for one costume.
+router.get('/biscuit/:id', biscuit_controller.biscuit_detail);
 module.exports = router;
