@@ -1,0 +1,20 @@
+extends layout
+block content
+ h1= title
+ - let biscuitid = toShow._id
+ - let Name = toShow.Name
+ - let FlavourType = toShow.FlavourType
+ - let Price = toShow.Price
+ div
+    div.row
+        div(class='biscuitAttr mr-3') biscuit ID is:
+        div #{biscuitid}
+    div.row
+        div(class='biscuitAttr mr-3') biscuit Name is:
+        div #{Name}
+    div.row
+        div(class='biscuitAttr mr-3') biscuit FlavourType is:
+        div #{FlavourType}
+    div.row
+        div(class='biscuitAttr mr-3') biscuit Price is:
+        div #{Price}

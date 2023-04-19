@@ -1,0 +1,31 @@
+extends layout
+block content
+    h1= title
+    form(id='biscuitForm', action="/resource/biscuit", method="POST")
+        div.form-group
+            label.biscuitAttr(for='Name') Name
+            input#Name(type='text', name='Name')
+        div.form-group
+            label.biscuitAttr(for='FlavourType') FlavourType
+            input#FlavourType(type='text', name='FlavourType')
+        div.form-group
+            label.biscuitAttr(for='Price') Price
+            input#Price(type='number', name='Price')
+        input(type="submit")
+    script.
+        document.forms['biscuitForm'].addEventListener('submit', (event) => {
+        event.preventDefault();
+        // TODO do something here to show user that form is being submitted
+        fetch(event.target.action, {
+            method: 'POST',
+            body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+        }).then((resp) => {
+         return resp.json(); // or resp.text() or whatever the server sends
+        }).then((body) => {
+         alert("Save succeded")
+         // TODO handle body
+        }).catch((error) => {
+        // TODO handle error
+         alert("Save failed " + error )
+        });
+      });
