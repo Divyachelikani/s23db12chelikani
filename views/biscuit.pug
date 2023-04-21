@@ -1,18 +1,21 @@
 extends layout
 
 block content
-    h1= title
-    //- -
-    //-  let biscuits  = [{"Name": "saltBiscuit", "FlavourType": "salt", "Price": "50",}, { "Name": "cream", "FlavourType": "Cream", "Price": "30",}, {"Name": "sweet", "FlavourType": "sweet", "Price": "29",},]
-    -let result = results
-    div(class= "container-fluid")
-        div(class = "row")  
-            each item, index in result 
-                div(class= "col-sm-2",onclick=`biscuits(${index})`)  Biscuit_Name:  #{item.Name}
-                div(class= "col-sm-2",onclick=`biscuits(${index})`) FlavourType:  #{item.FlavourType}
-                div(class= "col-sm-2", onclick=`biscuits(${index})`) Price:   #{item.Price}
-
-    script.
-       function biscuits (Index){
-       alert(`i like biscuit ${Index+1}`)
-        }
+  h1= title
+  - let items = results
+  div(claass="container-fluid mt-3")
+   div(class="row m-1")
+    each item,index in items
+     - let destination = `dispatch(\"/biscuit/update?id=${item._id}\")`
+     div(class="col-sm-3 bg-info m-2 p-4" onclick=`buy(${index})`) #{item.Name} - #{item.FlavourType } - #{item.Price}
+      button.btn( class="btn-primary ml-1", onclick= destination) Update
+  script.
+   function buy(itemNo)
+   {
+     alert(`You purchased Item ${itemNo+1}`)
+   }
+   function dispatch(path)
+   {
+     window.location.href=path
+   }
+   
