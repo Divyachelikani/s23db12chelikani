@@ -26,6 +26,8 @@ router.get('/delete', biscuit_controlers.biscuit_delete_Page);
 
 /* GET update costume page */
 router.get('/update', secured,biscuit_controlers.biscuit_update_Page);
+router.get('/delete', secured,biscuit_controlers.biscuit_update_Page);
+router.get('/create', secured,biscuit_controlers.biscuit_update_Page);
 
 module.exports = router;
 

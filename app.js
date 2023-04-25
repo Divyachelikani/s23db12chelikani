@@ -105,10 +105,10 @@ let instance1 = new
 biscuit({"Name": "saltBiscuit", "FlavourType": "salt", "Price": 50
 });
 let instance2 = new
-biscuit({"Name": "cream", "FlavourType": "Cream", "Price": "30"
+biscuit({"Name": "cream", "FlavourType": "Cream", "Price": 30
 });
 let instance3 = new
-biscuit({"Name": "sweet", "FlavourType": "sweet", "Price": "29"
+biscuit({"Name": "sweet", "FlavourType": "sweet", "Price": 29
 });
 instance1.save().then( () => { console.log('First Object is created'); }).catch( (e) => { console.log('There was an error', e.message); });
 instance2.save().then( () => { console.log('second Object is created'); }).catch( (e) => { console.log('There was an error', e.message); });
