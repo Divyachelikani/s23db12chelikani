@@ -12,7 +12,7 @@ router.get('/register', function(req, res) {
 });
 
 router.post('/register', function(req, res) {
-  Account.findOne({ username: req.body.username }, function(err, user) {
+  Account.findOne({ username: req.body.username }).then((err, user) => {
     if (err) {
       return res.render('register', { title: 'Registration', message: 'Registration error', account: req.body.username });
     }
@@ -37,7 +37,6 @@ router.get('/login', function(req, res) {
   res.render('login', { title: 'biscuit App Login', user: req.user });
 });
 
-
 router.post('/login', passport.authenticate('local'), function(req, res) {
   if (req.session.returnTo) {
     res.redirect(req.session.returnTo);
@@ -46,5 +45,4 @@ router.post('/login', passport.authenticate('local'), function(req, res) {
   }
 });
 
-module.exports=router;
-
+module.exports = router;

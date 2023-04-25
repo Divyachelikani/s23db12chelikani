@@ -22,8 +22,7 @@ router.get('/create', biscuit_controlers.biscuit_create_Page);
 router.get('/update', biscuit_controlers.biscuit_update_Page);
 router.get('/delete', biscuit_controlers.biscuit_delete_Page);
 
-/* GET update costume page */
-router.get('/update', biscuit_controlers.biscuit_update_Page);
+//router.get('/update', biscuit_controlers.biscuit_update_Page);
 
 /* GET update costume page */
 router.get('/update', secured,biscuit_controlers.biscuit_update_Page);
