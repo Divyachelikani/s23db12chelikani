@@ -61,12 +61,14 @@ ${JSON.stringify(req.body)}`)
  try {
  let toUpdate = await biscuit.findById( req.params.id)
  // Do updates of properties
+ console.log(toUpdate + "before update")
  if(req.body.Name)
  toUpdate.Name = req.body.Name;
  if(req.body.FlavourType) toUpdate.FlavourType = req.body.FlavourType;
  if(req.body.Price) toUpdate.Price = req.body.Price;
  let result = await toUpdate.save();
  console.log("Sucess " + result)
+ console.log(toUpdate + "after update")
  res.send(result)
  } catch (err) {
  res.status(500)

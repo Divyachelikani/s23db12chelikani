@@ -6,17 +6,16 @@ var biscuit_controller = require('../controllers/biscuit');
 /// API ROUTE ///
 // GET resources base.
 router.get('/', api_controller.api);
-/// COSTUME ROUTES ///
-// POST request for creating a Costume.
+/// biscuit ROUTES ///
+// POST request for creating a biscuit.
 router.post('/biscuit', biscuit_controller.biscuit_create_post);
-// DELETE request to delete Costume.
+// DELETE request to delete biscuit.
 router.delete('/biscuit/:id', biscuit_controller.biscuit_delete);
-// PUT request to update Costume.
+// PUT request to update biscuit.
 router.put('/biscuit/:id', biscuit_controller.biscuit_update_put);
-// GET request for one Costume.
+// GET request for one biscuit.
 router.get('/biscuit/:id', biscuit_controller.biscuit_detail);
-// GET request for list of all Costume items.
+// GET request for list of all biscuit items.
 router.get('/biscuit', biscuit_controller.biscuit_list);
-// GET request for one costume.
-router.get('/biscuit/:id', biscuit_controller.biscuit_detail);
 module.exports = router;
+
