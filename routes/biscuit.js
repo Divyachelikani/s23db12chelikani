@@ -27,3 +27,4 @@ router.get('/update', secured,biscuit_controlers.biscuit_update_Page);
 
 /* GET delete biscuit page */
 router.get('/delete',secured,biscuit_controlers.biscuit_delete_Page);
+
